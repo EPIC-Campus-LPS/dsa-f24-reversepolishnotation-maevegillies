@@ -55,6 +55,7 @@ public class ReversePolishNotation {
         }
         return (Integer.parseInt(stack.pop()));
     }
+
     static String infixToPostFix(String input) {
         String[] s = input.split(" ");
 
@@ -77,7 +78,7 @@ public class ReversePolishNotation {
                     if (stack.peek().equals("(") || stack.peek().equals(")"))
                         stack.pop();
                     else {
-                        output += stack.pop();
+                        output += stack.pop() + " ";
                         stack.push(s[i]);
                     }
 
@@ -87,7 +88,7 @@ public class ReversePolishNotation {
                 }
             }
             if (!op) {
-                output += s[i];
+                output += s[i] + " ";
 
             }
         }
@@ -99,13 +100,10 @@ public class ReversePolishNotation {
                 stack.pop();
             }
             else {
-                output += stack.pop();
+                output += stack.pop() + " ";
             }
         }
-        System.out.println(output + "\n");
-        //precedence
         return output;
-
     }
 
 
@@ -130,6 +128,7 @@ public class ReversePolishNotation {
             return -1;
         }
     }
+
 }
 
 
