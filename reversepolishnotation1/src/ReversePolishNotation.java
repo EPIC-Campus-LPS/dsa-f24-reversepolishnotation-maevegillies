@@ -75,8 +75,11 @@ public class ReversePolishNotation {
                     stack.push(s[i]);
                 }
                 else if (precedence(s[i]) <= precedence(stack.peek())) {
-                    if (stack.peek().equals("(") || stack.peek().equals(")"))
+                    if (stack.peek().equals("(") || stack.peek().equals(")")) {
                         stack.pop();
+                        stack.push(s[i]);
+                    }
+
                     else {
                         output += stack.pop() + " ";
                         stack.push(s[i]);
@@ -106,9 +109,6 @@ public class ReversePolishNotation {
         return output;
     }
 
-
-
-
     public static int precedence(String operators) {
         if (operators.equals("+") || operators.equals("-")) {
             return 1;
@@ -130,7 +130,3 @@ public class ReversePolishNotation {
     }
 
 }
-
-
-
-
